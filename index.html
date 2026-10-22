@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">MINI PROJECT</p>
+        <h1>Notification Center</h1>
+        <p class="subtitle">Create, view, and manage your notifications.</p>
+      </div>
+      <div class="bell" aria-hidden="true">🔔</div>
+    </header>
+
+    <section class="composer card">
+      <h2>Create a notification</h2>
+      <form id="notificationForm">
+        <label for="notificationTitle">Title</label>
+        <input id="notificationTitle" type="text" maxlength="60"
+               placeholder="e.g. Assignment reminder" required>
+
+        <label for="notificationMessage">Message</label>
+        <textarea id="notificationMessage" rows="3" maxlength="240"
+                  placeholder="Write your notification..." required></textarea>
+
+        <label for="notificationType">Notification type</label>
+        <select id="notificationType">
+          <option value="info">Information</option>
+          <option value="success">Success</option>
+          <option value="warning">Warning</option>
+          <option value="error">Important</option>
+        </select>
+        <button class="primary" type="submit">+ Create notification</button>
+      </form>
+    </section>
+
+    <section class="notifications-section">
+      <div class="section-heading">
+        <div>
+          <h2>Your notifications</h2>
+          <p id="notificationCount">0 notifications</p>
+        </div>
+        <button id="clearAllButton" class="secondary" type="button">Clear all</button>
+      </div>
+      <div id="notificationList" class="notification-list" aria-live="polite">
+        <div id="emptyState" class="empty-state">
+          <span class="empty-icon">📭</span>
+          <h3>No notifications yet</h3>
+          <p>Create your first notification using the form above.</p>
+        </div>
+      </div>
+    </section>
+    <footer>Built with HTML, CSS and JavaScript</footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
